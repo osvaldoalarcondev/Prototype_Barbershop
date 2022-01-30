@@ -1,0 +1,59 @@
+<?php
+/*
+Template Name: Formulario de registro
+*/
+get_header();
+//error_reporting(0);
+
+ $id_tar = $_POST['id_tarjeta'];
+ $nom = $_POST['nombre'];
+ $num = $_POST['numero'];
+ $bar = $_POST['barbero'];
+ $cum = $_POST['cumpleanos'];
+ $can_fav = $_POST['cancion_favorita'];
+if  ($id_tar>0) {
+ //sql
+ $sql = "INSERT INTO bdyeriko (id_tarjeta,nombre,numero,barbero,cumple,cancion_favorita)
+ VALUES ('".$id_tar."','".$nom."','".$num."','".$bar."','".$cum."',
+ '".$can_fav."');";
+
+ $wpdb->query($sql);
+ }
+else  {
+ print ('ingrese datos')  ;
+
+}
+?>
+	<div class="primary">
+		<div id="content" role="main">
+			<div id="center">
+				<h2>Registro cliente Yeriko nuevo</h2>
+				<form method="post" enctype="multipart/form-data" action="<?php
+echo get_home_url(); ?>/?page_id=2">
+					<label>Ingrese id de la tarjeta</label>
+					<input type="text" name="id_tarjeta"/>
+					</br></br>
+					<label>Nombre</label>
+					<input type="text" name="nombre"/>
+					</br></br>
+					<label>Numero celular</label>
+					<input type="text" name="numero"/>
+					</br></br>
+					<label>Barbero</label>
+					<input type="text" name="barbero"/>
+					</br></br>
+					<label>Cumple</label>
+					<input type="text" name="cumpleanos"/>
+					</br></br>
+					<label>Cancion favorita</label>
+					<input type="text" name="cancion_favorita"/>
+					</br></br>
+					<input type="submit" value="Enviar formulario"/>
+				</form>
+			</div>
+		</div>
+
+<?php //get_sidebar(): ?>
+<?php //get_footer(): ?>
+
+
