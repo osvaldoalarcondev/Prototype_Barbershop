@@ -1,0 +1,4 @@
+<?php
+$serial = $_GET["serial"]
+$date = date("")
+$data = sprintf("")
